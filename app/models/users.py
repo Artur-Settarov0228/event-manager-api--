@@ -1,14 +1,15 @@
 import enum
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime, Text, CheckConstraint, Enum
-
 from app.database import Base
+from app import models
 
 
 class UserTypes(str, enum.Enum):
     ADMIN = "admin"
-    ORGANIZER= "organizer"
+    ORGANIZER = "organizer"
     USER = "user"
+
 
 class User(Base):
     __tablename__ = "users"

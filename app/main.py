@@ -1,11 +1,12 @@
-
 from fastapi import FastAPI
-from pydantic import BaseModel, Field
-from database import Base ,engine
-from models import users, events
+from app.database import Base, engine
+from app.models import User
 
-
-app = FastAPI(title="Event Management API")
 
 Base.metadata.create_all(bind=engine)
 
+app = FastAPI(title="Event Manager API")
+
+@app.get("/")
+def home():
+    return {"message": "Event Manager API is running 🚀"}
